@@ -1,0 +1,13 @@
+/users/all:
+  get:
+    summary: Get all users. only admin access here
+    description: this endpoint aims to collect all users that ever registered
+    tags:
+      - Users
+    responses:
+      '200':
+        description: Successful response
+      '404':
+          description: User not found
+      '500':
+        description: Internal server error
