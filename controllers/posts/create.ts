@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
 export default async (
-    req: Request,
+    req: Request<any, any, IPost>,
     res: Response
 ) => {
     try {

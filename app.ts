@@ -1,3 +1,7 @@
+/// <reference path="./types/extensions/appResError.d.ts" />
+/// <reference path="./types/DTOs/globalDTOs.d.ts" />
+import './types/extensions/appResErrorImp'
+
 // external pacages
 import exp from 'express'
 import cookieParser from 'cookie-parser';

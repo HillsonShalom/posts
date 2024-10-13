@@ -1,12 +1,16 @@
-class AppResError extends Error {
-    statusCode?: number;
+// types/global.d.ts
 
-    constructor(status: number, message: string) {
-        super(message);
-        this.statusCode = status
+declare global {
+    class AppResError extends Error {
+        statusCode?: number;
+
+        constructor(status: number, message: string);
+    }
+
+    interface AppResError extends Error {
+        statusCode?: number;
     }
 }
 
-interface AppResError extends Error {
-    statusCode?: number;
-}
+// הכנס את הקובץ תחת מודול
+export {};
