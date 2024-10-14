@@ -4,9 +4,13 @@ interface icomment extends IComment, Document {
 
 }
 
-export const userSchema = new Schema<icomment>({
+export const commentSchema = new Schema<icomment>({
     body: {
         type: String,
         maxlength: 500
+    },
+    author: {
+        type: Schema.Types.ObjectId,
+        ref : 'User'
     }
 }, { timestamps: true })

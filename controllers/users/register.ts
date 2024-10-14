@@ -5,9 +5,11 @@ export default async (
     res: Response
 ) => {
     try {
-        
+        // func()
     } catch(err) {
         const error = err as AppResError
         res.status(error.statusCode || 500).json({ name: error.name, message: error.message });
     }
 }
+
+const create = () => {}

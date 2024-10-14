@@ -12,6 +12,7 @@ declare global {
         password: string;
         email   : string;
         age     : number;
+        posts?  : mongoose.Types.ObjectId[] | IPost[]
     }
 
     interface IComment {
@@ -20,10 +21,10 @@ declare global {
     }
 
     interface IPost {
-        author? : Types.ObjectId;
-        title   : string;
-        content : string;
-        comments: IComment[];
+        author?  : Types.ObjectId;
+        title    : string;
+        content  : string;
+        comments?: IComment[];
     }
 }
 

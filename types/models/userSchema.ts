@@ -1,13 +1,12 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface iuser extends IUser, Document {
-
-}
+interface iuser extends IUser, Document { }
 
 export const userSchema = new Schema<iuser>({
     username: {
         type: String,
         maxlength: 45,
+        required: [true, 'username must be provided!'],
         validate: {
             validator: (name) => /^[a-zA-Z\s-']+$/.test(name),
             message  : "Name can contain only alphabetical letters!"
@@ -26,7 +25,13 @@ export const userSchema = new Schema<iuser>({
     },
     age: {
         type: Number,
-        max: 120,
-        min: 1
+        max: [120, "too old..."],
+        min: [1, "too young..."]
+    },
+    posts: {
+        type: [Schema.Types.ObjectId],
+        ref : 'Post'
     }
-}, { timestamps: true })
+}, { timestamps: true });
+
+// export const User = mongoose.model('User', userSchema);
