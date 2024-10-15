@@ -1,8 +1,8 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface iuser extends IUser, Document { }
+export interface iuserDocument extends IUser, Document { }
 
-export const userSchema = new Schema<iuser>({
+export const userSchema = new Schema<iuserDocument>({
     username: {
         type: String,
         maxlength: 45,
