@@ -1,11 +1,11 @@
 import mongoose, { Schema, Document } from "mongoose";
 import { commentSchema } from "./commentSchema";
 
-interface ipost extends IPost, Document {
+export interface ipostDocument extends IPost, Document {
 
 }
 
-export const postSchema = new Schema<ipost>({
+export const postSchema = new Schema<ipostDocument>({
     author: {
         type: Schema.Types.ObjectId,
         ref : 'User'
