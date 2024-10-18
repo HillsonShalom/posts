@@ -1,9 +1,7 @@
 /// <reference path="./types/extensions/appResError.d.ts" />
 /// <reference path="./types/extensions/appRequest.d.ts" />
 /// <reference path="./types/DTOs/globalDTOs.d.ts" />
-/// <reference path="./types/models/declareModels.d.ts" />
 import './types/extensions/appResErrorImp'
-// import "./types/models/declareModels.d.ts"
 
 
 // external pacages

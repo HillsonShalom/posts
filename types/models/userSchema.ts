@@ -5,6 +5,7 @@ export interface iuserDocument extends IUser, Document { }
 export const userSchema = new Schema<iuserDocument>({
     username: {
         type: String,
+        unique: true,
         maxlength: 45,
         required: [true, 'username must be provided!'],
         validate: {
@@ -34,4 +35,4 @@ export const userSchema = new Schema<iuserDocument>({
     }
 }, { timestamps: true });
 
-// export const User = mongoose.model('User', userSchema);
+export const User = mongoose.model('User', userSchema);

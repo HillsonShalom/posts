@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import bcrypt from 'bcrypt'
-import { iuserDocument } from "../../types/models/userSchema";
+import { iuserDocument, User } from "../../types/models/userSchema";
 
 export default async (
     req: Request<any, any, IUser>,
@@ -9,7 +9,7 @@ export default async (
     try {
         const dto = await encryption(req.body);  // pipe that convert the password to hash
         const doc = await create(dto)
-        res.status(201).json(doc)
+        res.status(201).json(doc.id)
     } catch(err) {
         const error = err as AppResError
         console.error(err);
