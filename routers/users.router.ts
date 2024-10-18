@@ -16,7 +16,7 @@ router.post  ('/register', register     )
 router.post  ('/'        , login        )
 router.patch ('/'        , updateUser   )
 router.delete('/'        , deleteAccount)
-router.get   ('/'        , logout       )
+router.get   ('/logout'  , logout       )
 
  
 export default router

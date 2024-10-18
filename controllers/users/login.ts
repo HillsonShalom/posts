@@ -1,6 +1,7 @@
 import { AppResError } from "../../types/extensions/appResErrorImp";
 import { Request, Response } from "express";
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 import { iuserDocument, User } from "../../types/models/userSchema";
 
 
@@ -14,6 +15,8 @@ export default async (
         const user = await User.findOne({ username: body.username });
         if (!user || !(await checkPassword(body.password, user.password))) throw new AppResError(401, "username or password are wrong!");
         // here we will send a cookie
+        const token = jwt.sign({ name: user.username, id: user.id, role: 'user' }, process.env.SECRET_KEY!, { expiresIn: '1h' });
+        res.cookie('token', token);
         res.status(200).send('correct entrence');
     } catch(err) {
         const error = err as AppResError
