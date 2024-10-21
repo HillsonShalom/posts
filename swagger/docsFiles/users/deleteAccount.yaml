@@ -1,7 +1,7 @@
-/users/all:
-  get:
-    summary: Get all users. only admin access here
-    description: this endpoint aims to collect all users that ever registered
+/users/logout:
+  delete:
+    summary: Delete account
+    description: Delete account forever
     tags:
       - Users
     responses:

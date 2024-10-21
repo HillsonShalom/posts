@@ -1,0 +1,33 @@
+/users:
+  patch:
+    summary: Update profile
+    description: Update part or all of your profile
+    tags:
+      - Users
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+                example: Shalom
+              password:
+                type: string
+                example: a1b2c3d4
+              email:
+                type: string
+                format: email
+                example: shalom@gmail.com
+              age:
+                type: integer
+                example: 23
+    responses:
+      '200':
+        description: User updated successfully
+      '400':
+        description: Invalid input
+      '500':
+        description: Internal server error

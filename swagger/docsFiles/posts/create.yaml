@@ -1,0 +1,31 @@
+/posts:
+  post:
+    summary: create new post. token required
+    description: create new post by sending an object that containns "title" and "content"
+    tags:
+      - Posts
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                example: My First Post
+              content:
+                type: string
+                example: The content of my first post
+            required:
+              - title
+              - content
+    responses:
+      '201':
+        description: Post created successfully
+      '401':
+        description: You must login first, token don't sent
+      '400':
+        description: Invalid input
+      '500':
+        description: Internal server error

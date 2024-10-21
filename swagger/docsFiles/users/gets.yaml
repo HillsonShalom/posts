@@ -1,0 +1,41 @@
+/users/all:
+  get:
+    summary: Get all users. only admin can access here
+    description: this endpoint aims to collect all users that ever registered
+    tags:
+      - Users
+    responses:
+      '200':
+        description: Successful response
+      '404':
+          description: User not found
+      '500':
+        description: Internal server error
+
+/users:
+  get:
+    summary: Get your details
+    description: this endpoint aims to return your profile
+    tags:
+      - Users
+    responses:
+      '200':
+        description: Successful response
+      '404':
+          description: User not found
+      '500':
+        description: Internal server error
+
+/users/logout:
+  get:
+    summary: Logout
+    description: Logout and delete cookie
+    tags:
+      - Users
+    responses:
+      '200':
+        description: Successful response
+      '404':
+          description: User not found
+      '500':
+        description: Internal server error

@@ -1,0 +1,35 @@
+/posts:
+  patch:
+    summary: create new post. token required
+    description: create new post by sending an object that containns "title" and "content"
+    tags:
+      - Posts
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+                example: 67160ac801391baab289f799
+              title:
+                type: string
+                example: My First Post
+              content:
+                type: string
+                example: The content of my first post
+            required:
+              - id
+    responses:
+      '200':
+        description: Post updated successfully
+      '401':
+        description: You must login first, token don't sent
+      '400':
+        description: Invalid input
+      '404':
+        description: Post not found
+      '500':
+        description: Internal server error

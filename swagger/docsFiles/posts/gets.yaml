@@ -1,0 +1,71 @@
+/posts:
+  get:
+    summary: Get mine
+    description: Get all posts taht you have wrote
+    tags:
+      - Posts
+    responses:
+      '200':
+        description: Successful response
+      '404':
+          description: Post not found
+      '500':
+        description: Internal server error
+
+/posts/{postId}:
+  get:
+    summary: Get one
+    description: Get specific post by passing its id in the URL
+    tags:
+      - Posts
+    parameters:
+      - name: postId
+        in: path
+        description: Id of specific post
+        required: true
+        schema:
+          type: string
+          example: 6716062964337d4209bffc1f
+    responses:
+      '200':
+        description: Successful response
+      '404':
+          description: Post not found
+      '500':
+        description: Internal server error
+
+/posts/all:
+  get:
+    summary: Get all
+    description: Get all posts of all users
+    tags:
+      - Posts
+    responses:
+      '200':
+        description: Successful response
+      '404':
+          description: User not found
+      '500':
+        description: Internal server error
+
+/posts/pages/{page}:
+  get:
+    summary: Get mine
+    description: Get all posts taht you have wrote
+    tags:
+      - Posts
+    parameters:
+      - name: page
+        in: path
+        description: number of page, each page contains 10 posts
+        required: true
+        schema:
+          type: integer
+          example: 1
+    responses:
+      '200':
+        description: Successful response
+      '404':
+          description: User not found
+      '500':
+        description: Internal server error

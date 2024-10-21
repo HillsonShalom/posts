@@ -1,0 +1,21 @@
+/posts/{postId}:
+  delete:
+    summary: Get all
+    description: Get all posts of all users
+    tags:
+      - Posts
+    parameters:
+      - name: postId
+        in: path
+        description: Id of the post for delete
+        required: true
+        schema:
+          type: string
+          example: 6716062964337d4209bffc1f
+    responses:
+      '204':
+        description: Successful response
+      '404':
+          description: User not found
+      '500':
+        description: Internal server error

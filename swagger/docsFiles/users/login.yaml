@@ -1,0 +1,31 @@
+/users:
+  post:
+    summary: Login and recieve token
+    description: After registration, you have to login and get token
+    tags:
+      - Users
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+                example: Shalom
+              password:
+                type: string
+                example: a1b2c3d4
+            required:
+              - username
+              - password
+    responses:
+      '200':
+        description: Loged in successfully
+      '400':
+        description: Invalid or missing input
+      '401':
+        description: Username or password are wrong
+      '500':
+        description: Internal server error
