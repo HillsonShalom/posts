@@ -24,6 +24,7 @@ dbConnection()
 
 app.use(exp.json())
 app.use(cookieParser())
+app.use(exp.static('client'))
 
 app.use('/users'   , usersRouter   )
 app.use('/posts'   , verifyToken, postsRouter   )

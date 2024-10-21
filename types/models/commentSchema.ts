@@ -1,10 +1,10 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface icomment extends IComment, Document {
+export interface icommentDocument extends IComment, Document {
 
 }
 
-export const commentSchema = new Schema<icomment>({
+export const commentSchema = new Schema<icommentDocument>({
     body: {
         type: String,
         maxlength: 500
@@ -13,4 +13,4 @@ export const commentSchema = new Schema<icomment>({
         type: Schema.Types.ObjectId,
         ref : 'User'
     }
-}, { timestamps: true })
+}, { timestamps: true, id: true })
