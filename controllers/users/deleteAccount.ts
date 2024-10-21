@@ -7,8 +7,7 @@ export default async (
     res: Response
 ) => {
     try {
-        if (!req.token) throw new AppResError(401, 'login first');
-        const result = await User.findByIdAndDelete(req.token.id);
+        const result = await User.findByIdAndDelete(req.token!.id);
         res.clearCookie('token');
         res.json({ message: "successfully deleted this account", user: result });
     } catch(err) {

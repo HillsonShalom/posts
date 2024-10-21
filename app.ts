@@ -16,7 +16,7 @@ import commentsRouter from './routers/comments.router'
 
 import 'dotenv/config'
 import { swaggerDocs } from './swagger/swagger';
-import { attachToken } from './middlwares/tokenMiddleware';
+import { verifyToken } from './middlwares/tokenMiddleware';
 const port = process.env.PORT
 
 const app = exp()
@@ -24,11 +24,10 @@ dbConnection()
 
 app.use(exp.json())
 app.use(cookieParser())
-app.use(attachToken)
 
 app.use('/users'   , usersRouter   )
-app.use('/posts'   , postsRouter   )
-app.use('/comments', commentsRouter)
+app.use('/posts'   , verifyToken, postsRouter   )
+app.use('/comments', verifyToken, commentsRouter)
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 app.listen(port, () => {

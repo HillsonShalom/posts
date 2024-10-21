@@ -7,7 +7,6 @@ export default async (
     res: Response
 ) => {
     try {
-        if (!req.token) throw new AppResError(401, 'login first');
         const updated = await update(req.body);
         res.status(200).json(updated);
     } catch(err) {

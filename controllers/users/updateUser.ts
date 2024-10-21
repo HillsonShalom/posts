@@ -8,9 +8,8 @@ export default async (
     res: Response
 ) => {
     try {
-        if (!req.token) throw new AppResError(401, 'login first');
         if (req.body.password) req.body.password = await encryption(req.body.password);
-        const user = await User.findByIdAndUpdate(req.token.id, req.body);
+        const user = await User.findByIdAndUpdate(req.token!.id, req.body);
         res.json(user)
     } catch(err) {
         const error = err as AppResError

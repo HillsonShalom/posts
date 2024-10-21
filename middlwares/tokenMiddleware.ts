@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
-export const attachToken = async (
+export const verifyToken = async (
     req : Request,
     res : Response,
     next: NextFunction
@@ -11,7 +11,8 @@ export const attachToken = async (
         const token = req.cookies.token 
         if (token) {
             req.token = jwt.verify(token, secret!) as IToken
-            console.log('token recieved');
+        } else {
+            res.status(401).send("Login first!")
         }
         next();
     } catch(err) {

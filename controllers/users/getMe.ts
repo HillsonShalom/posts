@@ -7,8 +7,7 @@ export default async (
     res: Response
 ) => {
     try {
-        if (!req.token) throw new AppResError(401, 'login first');
-        const user = await User.findById(req.token.id);
+        const user = await User.findById(req.token!.id);
         if (!user) {
             res.clearCookie('token');
             throw new AppResError(500, 'wrong user!');

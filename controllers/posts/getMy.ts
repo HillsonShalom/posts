@@ -7,8 +7,7 @@ export default async (
     res: Response
 ) => {
     try {
-        if (!req.token) throw new AppResError(401, 'login first');
-        const myData = await User.findById(req.token.id).select('posts').populate('posts', 'title content').exec();
+        const myData = await User.findById(req.token!.id).select('posts').populate('posts', 'title content').exec();
         res.json(myData?.posts);
     } catch(err) {
         const error = err as AppResError
